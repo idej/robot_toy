@@ -11,7 +11,7 @@ class Application
   end
 
   def run
-    unless @command_list.error
+    if !@command_list.error
       @command_list.commands.each do |c|
         c.is_a?(Hash) ? @robot.send(c[:command], c[:x], c[:y], c[:direction]) : @robot.send(c)
       end
